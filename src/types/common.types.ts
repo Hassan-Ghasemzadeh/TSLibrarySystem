@@ -9,3 +9,18 @@ export type TransactionId = string & { __brand: "TransactionId" }
 export function createBrandedId<T extends string>(id: string): T {
     return id as T;
 }
+
+export type ApiResponse<T> = {
+    success: boolean,
+    data?: T,
+    error?: string,
+    timestamp: Timestamp,
+}
+
+export type PaginatedResult<T> = {
+    items: T[];
+    total: number;
+    page: number;
+    pageSize: number;
+    totalPages: number;
+}
